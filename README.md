@@ -3,7 +3,7 @@
 
 This repo provides the code for reproducing the experiments in the paper: Automatic Code Quality Estimation in Multi-round Code Review.
 
-The dataset is available on Zenodo: [https://zenodo.org/records/11109683](https://zenodo.org/records/11109683)
+The dataset is available on Zenodo: [https://zenodo.org/records/11109683]
 
 ## Dependency
 
