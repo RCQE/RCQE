@@ -1,0 +1,1 @@
+nohup python prompt_mcc.py --do_train --do_test > train.log 2>&1 &

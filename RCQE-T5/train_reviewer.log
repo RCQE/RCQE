@@ -1,0 +1,21 @@
+2024-03-27 15:33:00.914477: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-27 15:33:00.980373: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-03-27 15:33:01.255317: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2024-03-27 15:33:01.255357: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2024-03-27 15:33:01.255361: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Namespace(adam_epsilon=1e-08, add_lang_ids=False, add_task_prefix=False, beam_size=10, config_name='', data_dir='./dataset', do_eval=False, do_lower_case=False, do_test=True, do_train=True, early_stop_threshold=20, eval_batch_size=16, eval_steps=-1, gradient_accumulation_steps=3, learning_rate=0.0003, load_model_path=None, local_rank=-1, max_grad_norm=1.0, max_source_length=200, max_steps=-1, max_target_length=200, model_name_or_path=None, model_type=None, no_cuda=False, num_train_epochs=5, output_dir='./mcc_model', seed=2233, tokenizer_name='', train_batch_size=6, train_steps=-1, visible_gpu='1', warm_up_ratio=0.1, weight_decay=0.0)
+03/27/2024 15:33:01 - INFO - __main__ -   Namespace(adam_epsilon=1e-08, add_lang_ids=False, add_task_prefix=False, beam_size=10, config_name='', data_dir='./dataset', do_eval=False, do_lower_case=False, do_test=True, do_train=True, early_stop_threshold=20, eval_batch_size=16, eval_steps=-1, gradient_accumulation_steps=3, learning_rate=0.0003, load_model_path=None, local_rank=-1, max_grad_norm=1.0, max_source_length=200, max_steps=-1, max_target_length=200, model_name_or_path=None, model_type=None, no_cuda=False, num_train_epochs=5, output_dir='./mcc_model', seed=2233, tokenizer_name='', train_batch_size=6, train_steps=-1, visible_gpu='1', warm_up_ratio=0.1, weight_decay=0.0)
+Process rank: -1, device: cuda, n_gpu: 1, distributed training: False
+03/27/2024 15:33:01 - WARNING - __main__ -   Process rank: -1, device: cuda, n_gpu: 1, distributed training: False
+Model created!!
+03/27/2024 15:33:03 - INFO - __main__ -   Model created!!
+torch.cuda.is_available():  True
+Traceback (most recent call last):
+  File "code_reviewer.py", line 576, in <module>
+    main(my_args)
+  File "code_reviewer.py", line 218, in main
+    train_examples = read_prompt_examples('train')
+  File "/data/hzh22/pt4code/PT4Code/defect/prompt/MCC/tools.py", line 76, in read_prompt_examples
+    result = "Old Diff: " + old + ", New Diff: " + new
+TypeError: can only concatenate str (not "list") to str

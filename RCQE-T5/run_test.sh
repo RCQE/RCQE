@@ -1,0 +1,1 @@
+nohup python prompt_mcc.py --do_test --load_model_path='mcc_model' > test.log 2>&1 &
