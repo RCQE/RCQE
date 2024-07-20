@@ -1,0 +1,56 @@
+nohup: ignoring input
+NOTE: Redirects are currently not supported in Windows or MacOs.
+C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launch.py:180: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
+07/20/2024 23:22:01 - INFO - __main__ -   Namespace(task=None, model_type='codet5', add_lang_ids=False, from_scratch=False, debug=False, start_epoch=0, train_epochs=30, tokenizer_path=None, output_dir='./els_comment_model_onediff', load_model_path=None, model_name_or_path='D:/Git/Git/data/hzh22/CodeBERT/CodeReviewer/model/CodeReviewer', train_path=None, eval_chunkname=None, train_filename='D:/Git/Git/data/hzh22/CodeReviewProcesser/postprocess/data2/train.jsonl', dev_filename='D:/Git/Git/data/hzh22/CodeReviewProcesser/postprocess/data2/valid.jsonl', test_filename=None, gold_filename=None, config_name='Salesforce/codet5-base', max_source_length=512, max_target_length=200, do_train=False, do_eval=False, do_test=False, raw_input=False, do_lower_case=False, no_cuda=False, train_batch_size=2, eval_batch_size=8, gradient_accumulation_steps=3, learning_rate=0.0003, mask_rate=0.15, beam_size=6, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, save_steps=1000, log_steps=100, eval_steps=-1, eval_file='', out_file='', break_cnt=-1, train_steps=1000, warmup_steps=100, gpu_per_node=1, node_index=0, local_rank=0, seed=2233, cpu_count=16)
+Traceback (most recent call last):
+  File "D:\Research\QE_for_CR\taizun\code\run_finetune_code_els.py", line 276, in <module>
+    main(args)
+  File "D:\Research\QE_for_CR\taizun\code\run_finetune_code_els.py", line 117, in main
+    dist.init_process_group(backend="nccl")
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\distributed_c10d.py", line 761, in init_process_group
+    default_pg = _new_process_group_helper(
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\distributed_c10d.py", line 886, in _new_process_group_helper
+    raise RuntimeError("Distributed package doesn't have NCCL " "built in")
+RuntimeError: Distributed package doesn't have NCCL built in
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 72792) of binary: D:\Anaconda\python.exe
+Traceback (most recent call last):
+  File "D:\Anaconda\lib\runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "D:\Anaconda\lib\runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launch.py", line 195, in <module>
+    main()
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launch.py", line 191, in main
+    launch(args)
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launch.py", line 176, in launch
+    run(args)
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\run.py", line 753, in run
+    elastic_launch(
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launcher\api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "C:\Users\14260\AppData\Roaming\Python\Python39\site-packages\torch\distributed\launcher\api.py", line 246, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+../run_finetune_code_els.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-07-20_23:22:04
+  host      : HZH-LENOVO
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 72792)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

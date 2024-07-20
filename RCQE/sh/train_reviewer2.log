@@ -1,0 +1,233 @@
+2024-03-28 12:27:27.694619: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX_VNNI FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-03-28 12:27:27.759006: I tensorflow/core/util/port.cc:104] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2024-03-28 12:27:28.047480: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2024-03-28 12:27:28.047520: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2024-03-28 12:27:28.047524: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+03/28/2024 12:27:28 - INFO - __main__ -   Namespace(adam_epsilon=1e-08, add_lang_ids=False, beam_size=6, break_cnt=-1, config_name='Salesforce/codet5-base', cpu_count=24, debug=False, dev_filename='/data/hzh22/CodeReviewProcesser/postprocess/data/ref-valid.jsonl', do_eval=False, do_lower_case=False, do_test=False, do_train=False, eval_batch_size=8, eval_chunkname=None, eval_file='', eval_steps=-1, from_scratch=False, gold_filename=None, gpu_per_node=1, gradient_accumulation_steps=3, learning_rate=0.0003, load_model_path=None, local_rank=0, log_steps=100, mask_rate=0.15, max_grad_norm=1.0, max_source_length=200, max_target_length=200, model_name_or_path='/data/hzh22/CodeBERT/CodeReviewer/model/CodeReviewer', model_type='codet5', no_cuda=False, node_index=0, out_file='', output_dir='./els_model', raw_input=False, save_steps=1800, seed=2233, start_epoch=0, task=None, test_filename=None, tokenizer_path=None, train_batch_size=6, train_epochs=30, train_filename='/data/hzh22/CodeReviewProcesser/postprocess/data/ref-train.jsonl', train_path=None, train_steps=10000, warmup_steps=100, weight_decay=0.0)
+03/28/2024 12:27:28 - INFO - torch.distributed.distributed_c10d -   Added key: store_based_barrier_key:1 to store for rank: 0
+03/28/2024 12:27:28 - INFO - torch.distributed.distributed_c10d -   Rank 0: Completed store-based barrier for key:store_based_barrier_key:1 with 1 nodes.
+03/28/2024 12:27:28 - WARNING - __main__ -   Process rank: 0, global rank: 0, world size: 1, bs: 6
+Some weights of ReviewerModel were not initialized from the model checkpoint at /data/hzh22/CodeBERT/CodeReviewer/model/CodeReviewer and are newly initialized: ['cls_head.bias', 'cls_head.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+03/28/2024 12:27:29 - INFO - models -   Finish loading model [223M] from /data/hzh22/CodeBERT/CodeReviewer/model/CodeReviewer
+/data/anaconda3/envs/zhujie/lib/python3.8/site-packages/transformers/optimization.py:306: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+03/28/2024 12:27:31 - WARNING - __main__ -   Train files: ['/data/hzh22/CodeReviewProcesser/postprocess/data/ref-train.jsonl']
+03/28/2024 12:27:31 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:27:32 - INFO - utils -   Convert examples to features...
+03/28/2024 12:27:34 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:27:35 - INFO - __main__ -   batch size: 6
+03/28/2024 12:27:35 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:27:50 - INFO - __main__ -   step 100/10000: Train loss 0.688
+03/28/2024 12:28:05 - INFO - __main__ -   step 200/10000: Train loss 0.682
+03/28/2024 12:28:20 - INFO - __main__ -   step 300/10000: Train loss 0.683
+03/28/2024 12:28:36 - INFO - __main__ -   step 400/10000: Train loss 0.68
+03/28/2024 12:28:51 - INFO - __main__ -   step 500/10000: Train loss 0.675
+03/28/2024 12:29:06 - INFO - __main__ -   step 600/10000: Train loss 0.672
+03/28/2024 12:29:21 - INFO - __main__ -   step 700/10000: Train loss 0.668
+03/28/2024 12:29:36 - INFO - __main__ -   step 800/10000: Train loss 0.666
+03/28/2024 12:29:40 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:29:41 - INFO - utils -   Convert examples to features...
+03/28/2024 12:29:43 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:29:44 - INFO - __main__ -   batch size: 6
+03/28/2024 12:29:44 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:29:55 - INFO - __main__ -   step 900/10000: Train loss 0.656
+03/28/2024 12:30:11 - INFO - __main__ -   step 1000/10000: Train loss 0.652
+03/28/2024 12:30:26 - INFO - __main__ -   step 1100/10000: Train loss 0.661
+03/28/2024 12:30:42 - INFO - __main__ -   step 1200/10000: Train loss 0.665
+03/28/2024 12:30:58 - INFO - __main__ -   step 1300/10000: Train loss 0.663
+03/28/2024 12:31:14 - INFO - __main__ -   step 1400/10000: Train loss 0.66
+03/28/2024 12:31:30 - INFO - __main__ -   step 1500/10000: Train loss 0.656
+03/28/2024 12:31:46 - INFO - __main__ -   step 1600/10000: Train loss 0.655
+03/28/2024 12:31:55 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:31:56 - INFO - utils -   Convert examples to features...
+03/28/2024 12:31:57 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:31:58 - INFO - __main__ -   batch size: 6
+03/28/2024 12:31:58 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:32:06 - INFO - __main__ -   step 1700/10000: Train loss 0.647
+03/28/2024 12:32:23 - INFO - __main__ -   step 1800/10000: Train loss 0.638
+03/28/2024 12:32:23 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 12:32:23 - INFO - utils -   Convert examples to features...
+03/28/2024 12:32:24 - INFO - __main__ -   Data length: 7463.
+03/28/2024 12:32:24 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 12:32:24 - INFO - __main__ -     Batch size = 8
+03/28/2024 12:32:48 - INFO - __main__ -   acc 0.6140962079592657.
+03/28/2024 12:32:48 - INFO - __main__ -   Save the 1800-step model and optimizer into ./els_model/checkpoints-1800-0.614
+03/28/2024 12:33:09 - INFO - __main__ -   step 1900/10000: Train loss 0.645
+03/28/2024 12:33:25 - INFO - __main__ -   step 2000/10000: Train loss 0.646
+03/28/2024 12:33:41 - INFO - __main__ -   step 2100/10000: Train loss 0.64
+03/28/2024 12:33:58 - INFO - __main__ -   step 2200/10000: Train loss 0.636
+03/28/2024 12:34:15 - INFO - __main__ -   step 2300/10000: Train loss 0.63
+03/28/2024 12:34:32 - INFO - __main__ -   step 2400/10000: Train loss 0.627
+03/28/2024 12:34:45 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:34:47 - INFO - utils -   Convert examples to features...
+03/28/2024 12:34:48 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:34:49 - INFO - __main__ -   batch size: 6
+03/28/2024 12:34:49 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:34:53 - INFO - __main__ -   step 2500/10000: Train loss 0.623
+03/28/2024 12:35:10 - INFO - __main__ -   step 2600/10000: Train loss 0.604
+03/28/2024 12:35:28 - INFO - __main__ -   step 2700/10000: Train loss 0.608
+03/28/2024 12:35:46 - INFO - __main__ -   step 2800/10000: Train loss 0.61
+03/28/2024 12:36:04 - INFO - __main__ -   step 2900/10000: Train loss 0.605
+03/28/2024 12:36:23 - INFO - __main__ -   step 3000/10000: Train loss 0.593
+03/28/2024 12:36:41 - INFO - __main__ -   step 3100/10000: Train loss 0.584
+03/28/2024 12:37:00 - INFO - __main__ -   step 3200/10000: Train loss 0.572
+03/28/2024 12:37:19 - INFO - __main__ -   step 3300/10000: Train loss 0.569
+03/28/2024 12:37:20 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:37:21 - INFO - utils -   Convert examples to features...
+03/28/2024 12:37:22 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:37:23 - INFO - __main__ -   batch size: 6
+03/28/2024 12:37:23 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:37:40 - INFO - __main__ -   step 3400/10000: Train loss 0.514
+03/28/2024 12:37:59 - INFO - __main__ -   step 3500/10000: Train loss 0.53
+03/28/2024 12:38:19 - INFO - __main__ -   step 3600/10000: Train loss 0.543
+03/28/2024 12:38:19 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 12:38:19 - INFO - utils -   Convert examples to features...
+03/28/2024 12:38:20 - INFO - __main__ -   Data length: 7463.
+03/28/2024 12:38:20 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 12:38:20 - INFO - __main__ -     Batch size = 8
+03/28/2024 12:38:49 - INFO - __main__ -   acc 0.7860109875385234.
+03/28/2024 12:38:49 - INFO - __main__ -   Save the 3600-step model and optimizer into ./els_model/checkpoints-3600-0.786
+03/28/2024 12:39:13 - INFO - __main__ -   step 3700/10000: Train loss 0.536
+03/28/2024 12:39:31 - INFO - __main__ -   step 3800/10000: Train loss 0.517
+03/28/2024 12:39:51 - INFO - __main__ -   step 3900/10000: Train loss 0.504
+03/28/2024 12:40:10 - INFO - __main__ -   step 4000/10000: Train loss 0.491
+03/28/2024 12:40:29 - INFO - __main__ -   step 4100/10000: Train loss 0.487
+03/28/2024 12:40:36 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:40:37 - INFO - utils -   Convert examples to features...
+03/28/2024 12:40:38 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:40:39 - INFO - __main__ -   batch size: 6
+03/28/2024 12:40:39 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:40:53 - INFO - __main__ -   step 4200/10000: Train loss 0.408
+03/28/2024 12:41:12 - INFO - __main__ -   step 4300/10000: Train loss 0.435
+03/28/2024 12:41:33 - INFO - __main__ -   step 4400/10000: Train loss 0.461
+03/28/2024 12:41:53 - INFO - __main__ -   step 4500/10000: Train loss 0.459
+03/28/2024 12:42:14 - INFO - __main__ -   step 4600/10000: Train loss 0.438
+03/28/2024 12:42:34 - INFO - __main__ -   step 4700/10000: Train loss 0.423
+03/28/2024 12:42:54 - INFO - __main__ -   step 4800/10000: Train loss 0.408
+03/28/2024 12:43:15 - INFO - __main__ -   step 4900/10000: Train loss 0.408
+03/28/2024 12:43:27 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:43:28 - INFO - utils -   Convert examples to features...
+03/28/2024 12:43:29 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:43:30 - INFO - __main__ -   batch size: 6
+03/28/2024 12:43:30 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:43:39 - INFO - __main__ -   step 5000/10000: Train loss 0.338
+03/28/2024 12:43:59 - INFO - __main__ -   step 5100/10000: Train loss 0.365
+03/28/2024 12:44:20 - INFO - __main__ -   step 5200/10000: Train loss 0.377
+03/28/2024 12:44:41 - INFO - __main__ -   step 5300/10000: Train loss 0.391
+03/28/2024 12:45:02 - INFO - __main__ -   step 5400/10000: Train loss 0.379
+03/28/2024 12:45:02 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 12:45:02 - INFO - utils -   Convert examples to features...
+03/28/2024 12:45:03 - INFO - __main__ -   Data length: 7463.
+03/28/2024 12:45:03 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 12:45:03 - INFO - __main__ -     Batch size = 8
+03/28/2024 12:45:34 - INFO - __main__ -   acc 0.8875787216936889.
+03/28/2024 12:45:34 - INFO - __main__ -   Save the 5400-step model and optimizer into ./els_model/checkpoints-5400-0.887
+03/28/2024 12:45:58 - INFO - __main__ -   step 5500/10000: Train loss 0.36
+03/28/2024 12:46:19 - INFO - __main__ -   step 5600/10000: Train loss 0.341
+03/28/2024 12:46:39 - INFO - __main__ -   step 5700/10000: Train loss 0.331
+03/28/2024 12:46:56 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:46:57 - INFO - utils -   Convert examples to features...
+03/28/2024 12:46:59 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:46:59 - INFO - __main__ -   batch size: 6
+03/28/2024 12:46:59 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:47:03 - INFO - __main__ -   step 5800/10000: Train loss 0.239
+03/28/2024 12:47:24 - INFO - __main__ -   step 5900/10000: Train loss 0.279
+03/28/2024 12:47:45 - INFO - __main__ -   step 6000/10000: Train loss 0.304
+03/28/2024 12:48:06 - INFO - __main__ -   step 6100/10000: Train loss 0.32
+03/28/2024 12:48:28 - INFO - __main__ -   step 6200/10000: Train loss 0.319
+03/28/2024 12:48:49 - INFO - __main__ -   step 6300/10000: Train loss 0.303
+03/28/2024 12:49:10 - INFO - __main__ -   step 6400/10000: Train loss 0.29
+03/28/2024 12:49:32 - INFO - __main__ -   step 6500/10000: Train loss 0.281
+03/28/2024 12:49:53 - INFO - __main__ -   step 6600/10000: Train loss 0.28
+03/28/2024 12:49:55 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:49:56 - INFO - utils -   Convert examples to features...
+03/28/2024 12:49:58 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:49:59 - INFO - __main__ -   batch size: 6
+03/28/2024 12:49:59 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:50:18 - INFO - __main__ -   step 6700/10000: Train loss 0.229
+03/28/2024 12:50:39 - INFO - __main__ -   step 6800/10000: Train loss 0.255
+03/28/2024 12:51:01 - INFO - __main__ -   step 6900/10000: Train loss 0.262
+03/28/2024 12:51:22 - INFO - __main__ -   step 7000/10000: Train loss 0.264
+03/28/2024 12:51:44 - INFO - __main__ -   step 7100/10000: Train loss 0.254
+03/28/2024 12:52:06 - INFO - __main__ -   step 7200/10000: Train loss 0.244
+03/28/2024 12:52:06 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 12:52:06 - INFO - utils -   Convert examples to features...
+03/28/2024 12:52:08 - INFO - __main__ -   Data length: 7463.
+03/28/2024 12:52:08 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 12:52:08 - INFO - __main__ -     Batch size = 8
+03/28/2024 12:52:39 - INFO - __main__ -   acc 0.9216132922417258.
+03/28/2024 12:52:39 - INFO - __main__ -   Save the 7200-step model and optimizer into ./els_model/checkpoints-7200-0.921
+03/28/2024 12:53:04 - INFO - __main__ -   step 7300/10000: Train loss 0.232
+03/28/2024 12:53:25 - INFO - __main__ -   step 7400/10000: Train loss 0.228
+03/28/2024 12:53:33 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:53:34 - INFO - utils -   Convert examples to features...
+03/28/2024 12:53:35 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:53:36 - INFO - __main__ -   batch size: 6
+03/28/2024 12:53:36 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:53:50 - INFO - __main__ -   step 7500/10000: Train loss 0.171
+03/28/2024 12:54:12 - INFO - __main__ -   step 7600/10000: Train loss 0.198
+03/28/2024 12:54:34 - INFO - __main__ -   step 7700/10000: Train loss 0.21
+03/28/2024 12:54:56 - INFO - __main__ -   step 7800/10000: Train loss 0.221
+03/28/2024 12:55:18 - INFO - __main__ -   step 7900/10000: Train loss 0.216
+03/28/2024 12:55:41 - INFO - __main__ -   step 8000/10000: Train loss 0.207
+03/28/2024 12:56:03 - INFO - __main__ -   step 8100/10000: Train loss 0.197
+03/28/2024 12:56:25 - INFO - __main__ -   step 8200/10000: Train loss 0.196
+03/28/2024 12:56:38 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 12:56:39 - INFO - utils -   Convert examples to features...
+03/28/2024 12:56:41 - INFO - __main__ -   Data length: 14877.
+03/28/2024 12:56:42 - INFO - __main__ -   batch size: 6
+03/28/2024 12:56:42 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 12:56:50 - INFO - __main__ -   step 8300/10000: Train loss 0.137
+03/28/2024 12:57:12 - INFO - __main__ -   step 8400/10000: Train loss 0.18
+03/28/2024 12:57:34 - INFO - __main__ -   step 8500/10000: Train loss 0.187
+03/28/2024 12:57:56 - INFO - __main__ -   step 8600/10000: Train loss 0.19
+03/28/2024 12:58:18 - INFO - __main__ -   step 8700/10000: Train loss 0.19
+03/28/2024 12:58:40 - INFO - __main__ -   step 8800/10000: Train loss 0.182
+03/28/2024 12:59:02 - INFO - __main__ -   step 8900/10000: Train loss 0.176
+03/28/2024 12:59:24 - INFO - __main__ -   step 9000/10000: Train loss 0.172
+03/28/2024 12:59:24 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 12:59:24 - INFO - utils -   Convert examples to features...
+03/28/2024 12:59:26 - INFO - __main__ -   Data length: 7463.
+03/28/2024 12:59:26 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 12:59:26 - INFO - __main__ -     Batch size = 8
+03/28/2024 12:59:57 - INFO - __main__ -   acc 0.9510920541337264.
+03/28/2024 12:59:57 - INFO - __main__ -   Save the 9000-step model and optimizer into ./els_model/checkpoints-9000-0.951
+03/28/2024 13:00:20 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 13:00:21 - INFO - utils -   Convert examples to features...
+03/28/2024 13:00:22 - INFO - __main__ -   Data length: 14877.
+03/28/2024 13:00:23 - INFO - __main__ -   batch size: 6
+03/28/2024 13:00:23 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 13:00:26 - INFO - __main__ -   step 9100/10000: Train loss 0.125
+03/28/2024 13:00:47 - INFO - __main__ -   step 9200/10000: Train loss 0.143
+03/28/2024 13:01:09 - INFO - __main__ -   step 9300/10000: Train loss 0.149
+03/28/2024 13:01:31 - INFO - __main__ -   step 9400/10000: Train loss 0.158
+03/28/2024 13:01:53 - INFO - __main__ -   step 9500/10000: Train loss 0.159
+03/28/2024 13:02:16 - INFO - __main__ -   step 9600/10000: Train loss 0.151
+03/28/2024 13:02:38 - INFO - __main__ -   step 9700/10000: Train loss 0.147
+03/28/2024 13:03:01 - INFO - __main__ -   step 9800/10000: Train loss 0.143
+03/28/2024 13:03:23 - INFO - __main__ -   step 9900/10000: Train loss 0.144
+03/28/2024 13:03:26 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-trainrb.exps
+03/28/2024 13:03:27 - INFO - utils -   Convert examples to features...
+03/28/2024 13:03:28 - INFO - __main__ -   Data length: 14877.
+03/28/2024 13:03:29 - INFO - __main__ -   batch size: 6
+03/28/2024 13:03:29 - INFO - __main__ -   example source: ['<s>', '<start>', '<add>', '*', 'ĠL', 'ic', 'ensed', 'Ġto', 'Ġthe', 'ĠApache', 'ĠSoftware', 'ĠFoundation', 'Ġ(', 'AS', 'F', ')', 'Ġunder', 'Ġone', 'Ġor', 'Ġmore', '<add>', '*', 'Ġcontributor', 'Ġlicense', 'Ġagreement', 's', '.', 'Ġ', 'ĠSee', 'Ġthe', 'ĠNOTICE', 'Ġfile', 'Ġdistributed', 'Ġwith', '<add>', '*', 'Ġthis', 'Ġwork', 'Ġfor', 'Ġadditional', 'Ġinformation', 'Ġregarding', 'Ġcopyright', 'Ġownership', '.', '<add>', '*', 'ĠThe', 'ĠAS', 'F', 'Ġlicenses', 'Ġthis', 'Ġfile', 'Ġto', 'ĠYou', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', '<add>', '*', 'Ġ(', 'the', 'Ġ"', 'License', '");', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', '<add>', '*', 'Ġthe', 'ĠLicense', '.', 'Ġ', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<keep>', '*', '<del>', '*', 'ĠL', 'ic', 'ensed', 'Ġunder', 'Ġthe', 'ĠApache', 'ĠLicense', ',', 'ĠVersion', 'Ġ2', '.', '0', 'Ġ(', 'the', 'Ġ"', 'License', '");', '<del>', '*', 'Ġyou', 'Ġmay', 'Ġnot', 'Ġuse', 'Ġthis', 'Ġfile', 'Ġexcept', 'Ġin', 'Ġcompliance', 'Ġwith', 'Ġthe', 'ĠLicense', '.', '<del>', '*', 'ĠYou', 'Ġmay', 'Ġobtain', 'Ġa', 'Ġcopy', 'Ġof', 'Ġthe', 'ĠLicense', 'Ġat', '<del>', '*', '<del>', '*', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<add>', '*', 'ĠĠĠĠ', 'Ġhttp', '://', 'www', '.', 'apache', '.', 'org', '/', 'l', 'icenses', '/', 'LIC', 'ENSE', '-', '2', '.', '0', '<keep>', '*', '<keep>', '*', 'ĠUn', 'less', 'Ġrequired', '<end>', '</s>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>', '<pad>']
+03/28/2024 13:03:48 - INFO - __main__ -   step 10000/10000: Train loss 0.134
+03/28/2024 13:03:48 - INFO - utils -   Loading examples from /data/hzh22/CodeReviewProcesser/postprocess/data/ref-validrb.exps
+03/28/2024 13:03:49 - INFO - utils -   Convert examples to features...
+03/28/2024 13:03:50 - INFO - __main__ -   Data length: 7463.
+03/28/2024 13:03:50 - INFO - __main__ -     ***** Running acc evaluation *****
+03/28/2024 13:03:50 - INFO - __main__ -     Batch size = 8
+03/28/2024 13:04:23 - INFO - __main__ -   acc 0.9592657108401447.
+03/28/2024 13:04:23 - INFO - __main__ -   Reach max steps 10000.
+03/28/2024 13:04:28 - INFO - __main__ -   Training finished.
+/data/anaconda3/envs/zhujie/lib/python3.8/site-packages/torch/distributed/launch.py:180: FutureWarning: The module torch.distributed.launch is deprecated
+and will be removed in future. Use torchrun.
+Note that --use_env is set by default in torchrun.
+If your script expects `--local_rank` argument to be set, please
+change it to read from `os.environ['LOCAL_RANK']` instead. See 
+https://pytorch.org/docs/stable/distributed.html#launch-utility for 
+further instructions
+
+  warnings.warn(
