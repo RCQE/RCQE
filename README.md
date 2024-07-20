@@ -1,16 +1,20 @@
-## Hi there 👋
+## RCQE
+# Automatic Code Quality Estimation in Multi-round Code Review
 
-<!--
-**RCQE/RCQE** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+This repo provides the code for reproducing the experiments in the paper: Automatic Code Quality Estimation in Multi-round Code Review.
 
-Here are some ideas to get you started:
+The dataset is available on Zenodo: [https://zenodo.org/records/11109683](https://zenodo.org/records/11109683)
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Dependency
+
+```sh
+conda install nltk
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+conda install transformers
+```
+## Experiments
+
+- 🌱 The code for the model RCQE-T5 family is in ./RCQE-T5, prompt-tuning by running ./RCQE-T5/run_train.sh.
+- 💬The code for the model RCQE family is in ./RCQE, fine-tuned by running the shell script in ./code/sh.
+- ⚡The code for baseline models is in ./SimAST-GCN-master, the original repo is: https://github.com/SimAST-GCN/SimAST-GCN.
+
